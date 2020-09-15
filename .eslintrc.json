@@ -46,7 +46,7 @@
       }
     ],
     "import/prefer-default-export": "off",
-    "no-unused0expressions": "off",
+    "no-unused-expressions": "off",
     "prettier/prettier": "error",
     "react-hooks/exhaustive-deps": "warn",
     "react-hooks/rules-of-hooks": "error",
@@ -58,11 +58,11 @@
     ],
     "react/jsx-one-expression-per-line": "off",
     "react/jsx-props-no-spreading": "off",
-    "react/prop-types": "off",
-    "settings": {
-      "import/resolver": {
-        "typescript": {}
-      }
+    "react/prop-types": "off"
+  },
+  "settings": {
+    "import/resolver": {
+      "typescript": {}
     }
   }
 }
