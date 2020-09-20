@@ -1,4 +1,5 @@
 import React, { createContext, useCallback, useContext, useState } from 'react';
+import { useHistory } from 'react-router-dom';
 
 import api from '../services/api';
 
@@ -21,6 +22,7 @@ interface AuthContextData {
 const AuthContext = createContext<AuthContextData>({} as AuthContextData);
 
 const AuthProvider: React.FC = ({ children }) => {
+  const history = useHistory();
   const [data, setData] = useState<AuthState>(() => {
     const token = localStorage.getItem('@GoBarber:token');
     const user = localStorage.getItem('@GoBarber:user');
@@ -48,7 +50,9 @@ const AuthProvider: React.FC = ({ children }) => {
     localStorage.removeItem('@GoBarber:user');
 
     setData({} as AuthState);
-  }, []);
+
+    history.push('/');
+  }, [history]);
 
   return (
     <AuthContext.Provider value={{ user: data.user, signIn, signOut }}>
